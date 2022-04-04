@@ -1,0 +1,15 @@
+1. 이미지
+kaggle NIH Chest X-rays 112,120장 
+CC0: Public Domain - 상업적 이용 가능
+https://www.kaggle.com/nih-chest-xrays/data
+
+[ NIH-yolo-efficient/KAGGLE-IMAGE/archive 내부 폴더 설명 ] 
+1. images_xxx: kaggle download 이미지
+2. TOTAL-ORIGIN: images_xxx 폴더내 이미지들을 한 폴더로 위치
+3. TOTAL-USE: TOTAL-ORIGIN 복사본 (TOTAL-ORIGIN을 만드는 데에 시간이 많이 소요되어 복사본에서 필요한 이미지 활용)
+4. TEST_EFFICIENT, TEST_YOLO,TEST_FULL: 각각 모델의 inference 이미지 소스 및 결과 폴더
+
+NIH-yolo-efficientnet/KAGGLE-IMAGE/TOTAL-USE 에서 필요한 데이터 추출 후 사용해야
+추출 코드: NIH-yolo-efficientnet/data_gen.py
+NIH-yolo-efficientnet/KAGGLE-IMAGE/TOTAL-USE가 훼손되었다면 전체 데이터 폴더 생성 후 사용해야 
+생성 코드: NIH-yolo-efficientnet/data_total.py
