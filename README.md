@@ -74,10 +74,10 @@ Atypical Appearance
 - black.png: efficientnet inference에 적합한 이미지 크기로 수정할 때 사용하는 검정 배경
 - boundingbox 폴더: 샘플용 원본, yolo inference 이미지
 - bounding_box_crop.py: 샘플용 바운딩 박스 크롭 코드
-- check_shape: 크롭된 바운딩 박스들 이미지 속성 확인 코드
+- (boundingbox)check_shape: 크롭된 바운딩 박스들 이미지 속성 확인 코드
 - efficient_model.py: efficientnet model
 - efficientnet_b4.pt:  efficientnet weights
-- except_data_check.py: yolo-efficientnet 결과물 csv에서 빈칸이 있는 이미지 데이터 확인 
+- except_data_check.py: yolo-efficientnet 결과물 csv에서 빈칸이 있는 이미지 데이터 확인 (예외처리)
 - yolov5-V5.0_best_weight_batch16_epoch20.pt: yolo weights
 
 
