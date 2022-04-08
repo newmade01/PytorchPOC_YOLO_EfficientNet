@@ -66,7 +66,7 @@ Atypical Appearance
 - Yolo_Efficient_inference_###.py: yolo, efficientnet, yolo+crop+resize+efficientnet 코드 + 최종 csv 파일 작성 코드
 - Yolo_Efficient_inference_one.py: 이미지 하나
 - Yolo_Efficient_inference_image.py: 이미지 하나가 yolo-crop-resize-efficientnet
-- Yolo_Efficient_inference_function.py: 이미지 전체가 yolo-crop-resize-efficientnet
+- Yolo_Efficient_inference_function.py: 이미지 전체가 순서대로 yolo-crop-resize-efficientnet
 
 
 # 기타
