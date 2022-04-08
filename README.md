@@ -45,14 +45,14 @@ Atypical Appearance
 - make_csv.py; 이미지,레이블 경로 부분만 수정 (train에 사용할 csv 생성)
 - training.py; parser부분 '--train_path'(train csv), 'test_path'(test csv), '--dataset_dir'(image) 경로 수정
 
-
-### Train_Model Process
+###Preprocessing
 ***<2.DataPrepare> - Data Preprocessing
 - (1) make_json_real.py (dicom metadata와 data제공 csv를 각각 json으로 변환하여 하나의 json으로 병합하여 저장)
 - (2) make_txt_c18.py (json to txt convert for detection-YOLOv5)
 - (3) crop_make_folder.py (ROI crop & foldering image by class for classification-EfficientNetB4)
 #각각 경로변경 필요; 코드내에 주석 '(수정)'으로 표시해 둔 곳 수정
-
+  
+### Train_Model Process
 ***<3.DetectModel> - YOLOv5 Model Training
 - (4) coco128.yaml (train/val image data path, number of classes, class names setting)
 - (5) train.py(Detection-YOLOv5 training-->save model weight file("best.pt"/"last.pt"))
