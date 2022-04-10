@@ -31,10 +31,10 @@ python 3.7.0
 <csv2json>
 boxes
 label
-Negative for Pneumonia
-Typical Appearance
-Indeterminate Appearance
-Atypical Appearance
+Negative for Pneumonia: 폐렴에 음성
+Typical Appearance: 정형 외형
+Indeterminate Appearance: 불확실한 외형
+Atypical Appearance: 비정형 외형
 
 # train code 설명
 ***YOLOv5-v5.0 (poc1\Yolo_EfficientNet_\yolov5-V5.0)
