@@ -35,7 +35,7 @@ from utils.plots import plot_images, plot_labels, plot_results, plot_evolution
 from utils.torch_utils import ModelEMA, select_device, intersect_dicts, torch_distributed_zero_first, is_parallel
 from utils.wandb_logging.wandb_utils import WandbLogger, check_wandb_resume
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__) #로그
 
 
 def train(hyp, opt, device, tb_writer=None):
@@ -52,14 +52,14 @@ def train(hyp, opt, device, tb_writer=None):
 
     # Save run settings
     with open(save_dir / 'hyp.yaml', 'w') as f:
-        yaml.dump(hyp, f, sort_keys=False)
+        yaml.dump(hyp, f, sort_keys=False)  #파이썬 데이터 => yaml
     with open(save_dir / 'opt.yaml', 'w') as f:
         yaml.dump(vars(opt), f, sort_keys=False)
 
     # Configure
     plots = not opt.evolve  # create plots
     cuda = device.type != 'cpu'
-    init_seeds(2 + rank)
+    init_seeds(2 + rank)    #random 초기화
     with open(opt.data) as f:
         data_dict = yaml.load(f, Loader=yaml.SafeLoader)  # data dict
     is_coco = opt.data.endswith('coco.yaml')
@@ -89,7 +89,7 @@ def train(hyp, opt, device, tb_writer=None):
         exclude = ['anchor'] if (opt.cfg or hyp.get('anchors')) and not opt.resume else []  # exclude keys
         state_dict = ckpt['model'].float().state_dict()  # to FP32
         state_dict = intersect_dicts(state_dict, model.state_dict(), exclude=exclude)  # intersect
-        model.load_state_dict(state_dict, strict=False)  # load
+        model.load_state_dict(state_dict, strict=False)  # 모델 load
         logger.info('Transferred %g/%g items from %s' % (len(state_dict), len(model.state_dict()), weights))  # report
     else:
         model = Model(opt.cfg, ch=3, nc=nc, anchors=hyp.get('anchors')).to(device)  # create
@@ -106,7 +106,7 @@ def train(hyp, opt, device, tb_writer=None):
             print('freezing %s' % k)
             v.requires_grad = False
 
-    # Optimizer
+    # Optimizer 최적화
     nbs = 64  # nominal batch size
     accumulate = max(round(nbs / total_batch_size), 1)  # accumulate loss before optimizing
     hyp['weight_decay'] *= total_batch_size * accumulate / nbs  # scale weight_decay
