@@ -34,8 +34,8 @@ from bounding_box_crop import crop_merge_one,crop_merge_all
 
 def Yolo():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', nargs='+', type=str, default='yolov5-V5.0_best_weight_batch16_epoch20.pt', help='model.pt path(s)')
-    parser.add_argument('--source', type=str, default='KAGGLE-IMAGE/archive/TEST_YOLO', help='source')  # file/folder, 0 for webcam
+    parser.add_argument('--weights', nargs='+', type=str, default='yolov5-V5.0_best_weight_batch16_epoch20.pt', help='model.pt path(s)') #best.pt로 실행
+    parser.add_argument('--source', type=str, default='KAGGLE-IMAGE/archive/TEST_YOLO', help='source')  # Inference할 이미지, 동영상의 위치
     parser.add_argument('--img-size', type=int, default=640, help='inference size (pixels)')
     parser.add_argument('--conf-thres', type=float, default=0.25, help='object confidence threshold')
     parser.add_argument('--iou-thres', type=float, default=0.45, help='IOU threshold for NMS')
