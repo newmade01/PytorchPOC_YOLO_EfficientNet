@@ -62,8 +62,8 @@ Atypical Appearance: 비정형 외형
 - (7) training.py (Classification-EfficientNetB4 training-->save model weights folder("output_b4_x"))
 
 
-# inference 코드 설명:  (yoloV5)detect.py + (EfficinetNet)inference.py
-- Yolo_Efficient_inference_###.py: yolo, efficientnet, yolo+crop+resize+efficientnet 코드 + 최종 csv 파일 작성 코드
+# inference 코드 설명:  POC용 코드(yoloV5)detect.py + (Crop_Resize_EfficinetNet)inference.py
+- Yolo_Efficient_inference_###.py: yolo, efficientnet, yolo, crop+resize+efficientnet 코드 + 최종 csv 파일 작성 코드
 - Yolo_Efficient_inference_one.py: 이미지 하나
 - Yolo_Efficient_inference_image.py: 이미지 하나가 yolo-crop-resize-efficientnet
 - Yolo_Efficient_inference_function.py: 이미지 전체가 순서대로 yolo-crop-resize-efficientnet
