@@ -1,3 +1,4 @@
+#Yolo_Efficient_inference_one.py: 이미지 하나
 import argparse
 import os
 import torch

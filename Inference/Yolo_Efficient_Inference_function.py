@@ -1,3 +1,4 @@
+Yolo_Efficient_inference_function.py: 이미지 전체가 순서대로 yolo-crop-resize-efficientnet
 import argparse
 import os
 import torch

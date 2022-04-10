@@ -1,3 +1,4 @@
+#Yolo_Efficient_inference_image.py: 이미지 하나가 yolo-crop-resize-efficientnet
 import os
 import albumentations as A
 import cv2
