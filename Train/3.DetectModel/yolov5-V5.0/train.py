@@ -455,7 +455,7 @@ def train(hyp, opt, device, tb_writer=None):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', type=str, default='yolov5m.pt', help='initial weights path')   #cocoDataset의 Pre-train
+    parser.add_argument('--weights', type=str, default='yolov5m6.pt', help='initial weights path')   #cocoDataset의 Pre-train
     parser.add_argument('--cfg', type=str, default='', help='yolov5m.yaml')
     parser.add_argument('--data', type=str, default='data/covid19.yaml', help='data.yaml path')
     parser.add_argument('--hyp', type=str, default='data/hyp.scratch.yaml', help='hyperparameters path')
