@@ -22,7 +22,7 @@ num_of_class = 4 #(수정)class개수 --> 이 숫자에 따라 폴더 class별 �
 def crop_merge_img(img, line):
     global back_resize
 
-    back_dir = 'back.png'
+    back_dir = 'back.png'   #배경 검은화면
     back = cv2.imread(back_dir)
     img_size = img.shape
 
@@ -47,12 +47,12 @@ def crop_merge_img(img, line):
         print("y1", y1, "y2", y2)
         print("h", h)
 
-        # merge_img
-        roi = img[y1:y2, x1:x2]
+        # merge_img : ROI에 맞게 back 사진 resize
+        roi = img[y1:y2, x1:x2] #ROI 부분
         print("roi.shape", roi.shape)
 
         if h > w:
-            back_resize = cv2.resize(back, dsize=(h, h), interpolation=cv2.INTER_AREA)
+            back_resize = cv2.resize(back, dsize=(h, h), interpolation=cv2.INTER_AREA)  #입력 이미지(src), 절대 크기(dstSize), 상대 크기(fx, fy), 보간법(interpolation)으로 출력 이미지(dst)
             print("back.shape", back_resize.shape)
             # cv2.imshow('background', back_resize)
             # cv2.waitKey(0)
@@ -80,7 +80,7 @@ def crop_merge_img(img, line):
 
     return back_resize
 
-
+#폴더로 추가해서 넣음
 for c in range(0, num_of_class):
   d = ""+str(c)
   path = os.path.join(dst_folder, d)
