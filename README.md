@@ -82,3 +82,5 @@ Atypical Appearance: 비정형 외형
 
 
 
+#추후, 개발 예정
+- 현재, EfficientNet 추론 코드 부분만 crop-resize 과정이 적용되어 train부분과 yolo모델에도 crop-resize 적용 
