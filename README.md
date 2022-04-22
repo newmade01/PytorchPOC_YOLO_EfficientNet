@@ -54,7 +54,7 @@ Atypical Appearance: 비정형 외형
   
 ### Train_Model Process
 ***<3.DetectModel> - YOLOv5 Model Training
-- (4) coco128.yaml (train/val image data path, number of classes, class names setting)
+- (4) covid19.yaml (train/val image data path, number of classes, class names setting)
 - (5) train.py(Detection-YOLOv5 training-->save model weight file("best.pt"/"last.pt"))
 
 ***<4.ClassifyModel> - EfficientNetB4 Model Training
