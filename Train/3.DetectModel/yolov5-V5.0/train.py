@@ -57,9 +57,9 @@ def train(hyp, opt, device, tb_writer=None):
         yaml.dump(vars(opt), f, sort_keys=False)
 
     # Configure
-    plots = not opt.evolve  # create plots
+    plots = not opt.evolve  # create plots: : label bounding box에 대한 정보를 시각화할지 정함
     cuda = device.type != 'cpu'
-    init_seeds(2 + rank)    #random 초기화
+    init_seeds(2 + rank)    #seed random 초기화
     with open(opt.data) as f:
         data_dict = yaml.load(f, Loader=yaml.SafeLoader)  # data dict
     is_coco = opt.data.endswith('coco.yaml')
@@ -411,7 +411,7 @@ def train(hyp, opt, device, tb_writer=None):
         # end epoch ----------------------------------------------------------------------------------------------------
     # end training
     if rank in [-1, 0]:
-        # Plots: label bounding box에 대한 정보를 시각화할지 정함
+        # Plots
         if plots:
             plot_results(save_dir=save_dir)  # save as results.png
             if wandb_logger.wandb:
