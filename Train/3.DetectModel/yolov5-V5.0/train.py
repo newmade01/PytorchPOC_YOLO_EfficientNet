@@ -108,8 +108,8 @@ def train(hyp, opt, device, tb_writer=None):
 
     # Optimizer 최적화
     nbs = 64  # nominal batch size
-    accumulate = max(round(nbs / total_batch_size), 1)  # accumulate loss before optimizing
-    hyp['weight_decay'] *= total_batch_size * accumulate / nbs  # scale weight_decay
+    accumulate = max(round(nbs / total_batch_size), 1)  # accumulate loss before optimizing, loss 값을 모았다 계산
+    hyp['weight_decay'] *= total_batch_size * accumulate / nbs  # scale weight_decay, 학습 후반부, weight을 조금씩 업데이트
     logger.info(f"Scaled weight_decay = {hyp['weight_decay']}")
 
     pg0, pg1, pg2 = [], [], []  # optimizer parameter groups
@@ -140,10 +140,10 @@ def train(hyp, opt, device, tb_writer=None):
     scheduler = lr_scheduler.LambdaLR(optimizer, lr_lambda=lf)
     # plot_lr_scheduler(optimizer, scheduler, epochs)
 
-    # EMA
+    # EMA: Exponential Moving Average, 최근 데이터에 가중치를 둔 평균값, 성능을 안정화
     ema = ModelEMA(model) if rank in [-1, 0] else None
 
-    # Resume
+    # Resume: 사전에 미리 학습한 epoch 이 있다면 필요
     start_epoch, best_fitness = 0, 0.0
     if pretrained:
         # Optimizer
