@@ -174,11 +174,11 @@ def train(hyp, opt, device, tb_writer=None):
     # Image sizes
     gs = max(int(model.stride.max()), 32)  # grid size (max stride)
     nl = model.model[-1].nl  # number of detection layers (used for scaling hyp['obj'])
-    imgsz, imgsz_test = [check_img_size(x, gs) for x in opt.img_size]  # verify imgsz are gs-multiples
+    imgsz, imgsz_test = [check_img_size(x, gs) for x in opt.img_size]  # verify imgsz are gs의 배수가 아니라면 gs의 배수로 만들어준다.
 
     # DP mode
     if cuda and rank == -1 and torch.cuda.device_count() > 1:
-        model = torch.nn.DataParallel(model)    #GPU 데이터 병렬처
+        model = torch.nn.DataParallel(model)    #GPU 데이터 병렬처리
 
     # SyncBatchNorm
     if opt.sync_bn and cuda and rank != -1:
