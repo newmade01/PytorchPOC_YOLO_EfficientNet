@@ -67,7 +67,7 @@ class Model(nn.Module):
     def __init__(self, cfg='yolov5s.yaml', ch=3, nc=None, anchors=None):  # model, input channels, number of classes
         super(Model, self).__init__()
         if isinstance(cfg, dict):
-            self.yaml = cfg  # model dict
+            self.yaml = cfg  # model dict 형태
         else:  # is *.yaml
             import yaml  # for torch hub
             self.yaml_file = Path(cfg).name
@@ -75,10 +75,10 @@ class Model(nn.Module):
                 self.yaml = yaml.load(f, Loader=yaml.SafeLoader)  # model dict
 
         # Define model
-        ch = self.yaml['ch'] = self.yaml.get('ch', ch)  # input channels
+        ch = self.yaml['ch'] = self.yaml.get('ch', ch)  # input channels (디테일값 추가)
         if nc and nc != self.yaml['nc']:
             logger.info(f"Overriding model.yaml nc={self.yaml['nc']} with nc={nc}")
-            self.yaml['nc'] = nc  # override yaml value
+            self.yaml['nc'] = nc  # override yaml value, nc값이 덮어써짐
         if anchors:
             logger.info(f'Overriding model.yaml anchors with anchors={anchors}')
             self.yaml['anchors'] = round(anchors)  # override yaml value
@@ -216,7 +216,7 @@ def parse_model(d, ch):  # model_dict, input_channels(3)
         n = max(round(n * gd), 1) if n > 1 else n  # depth gain
         if m in [Conv, GhostConv, Bottleneck, GhostBottleneck, SPP, DWConv, MixConv2d, Focus, CrossConv, BottleneckCSP,
                  C3, C3TR]:
-            c1, c2 = ch[f], args[0]
+            c1, c2 = ch[f], args[0] #c1: input channel, c2: output channel
             if c2 != no:  # if not output
                 c2 = make_divisible(c2 * gw, 8)
 
