@@ -27,12 +27,12 @@ def check_anchors(dataset, model, thr=4.0, imgsz=640):
     m = model.module.model[-1] if hasattr(model, 'module') else model.model[-1]  # Detect()
     shapes = imgsz * dataset.shapes / dataset.shapes.max(1, keepdims=True)
     scale = np.random.uniform(0.9, 1.1, size=(shapes.shape[0], 1))  # augment scale
-    wh = torch.tensor(np.concatenate([l[:, 3:5] * s for s, l in zip(shapes * scale, dataset.labels)])).float()  # wh
+    wh = torch.tensor(np.concatenate([l[:, 3:5] * s for s, l in zip(shapes * scale, dataset.labels)])).float()  # wh:  label box의 width, height, 각 box의 넓이 높이는 wh안에 기록됨
 
-    def metric(k):  # compute metric
+    def metric(k):  # compute metric: label box의 넓이,높이 wh를 이용해 현재 anchor box들이 label box에 얼마나 적합한지 판단
         r = wh[:, None] / k[None]
         x = torch.min(r, 1. / r).min(2)[0]  # ratio metric
-        best = x.max(1)[0]  # best_x
+        best = x.max(1)[0]  # best_x 비슷할수록 1값에 가까워짐
         aat = (x > 1. / thr).float().sum(1).mean()  # anchors above threshold
         bpr = (best > 1. / thr).float().mean()  # best possible recall
         return bpr, aat

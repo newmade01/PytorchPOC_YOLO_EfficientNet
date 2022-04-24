@@ -1,5 +1,9 @@
 # Loss functions
-
+'''
+1. lbox(예측 box와 라벨(target) box간의 차이에서 발생하는 loss)
+2. lobj(예측 box에 물체가 있는지 여부와 라벨 box의 물체감지 유무에 따른 loss)
+3. lcls(예측 box가 예측한 class와 라벨 box의 class 차이에 따른 loss)
+'''
 import torch
 import torch.nn as nn
 
