@@ -207,13 +207,13 @@ def train(hyp, opt, device, tb_writer=None):
             # cf = torch.bincount(c.long(), minlength=nc) + 1.  # frequency
             # model._initialize_biases(cf.to(device))
             if plots:
-                plot_labels(labels, names, save_dir, loggers)
+                plot_labels(labels, names, save_dir, loggers)   #label box의  분포도
                 if tb_writer:
                     tb_writer.add_histogram('classes', c, 0)
 
             # Anchors
             if not opt.noautoanchor:
-                check_anchors(dataset, model=model, thr=hyp['anchor_t'], imgsz=imgsz)
+                check_anchors(dataset, model=model, thr=hyp['anchor_t'], imgsz=imgsz)   #anchors의 크기를 데이터에 맞게 조정
             model.half().float()  # pre-reduce anchor precision
 
     # DDP mode
