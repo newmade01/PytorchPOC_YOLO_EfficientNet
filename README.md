@@ -70,7 +70,6 @@ Atypical Appearance: 비정형 외형
 
 
 # 기타
-- models, utils: yolo inference에 필요한 models, utils
 - black.png: efficientnet inference에 적합한 이미지 크기로 수정할 때 사용하는 검정 배경
 - boundingbox 폴더: 샘플용 원본, yolo inference 이미지
 - bounding_box_crop.py: 샘플용 바운딩 박스 크롭 코드
@@ -83,5 +82,4 @@ Atypical Appearance: 비정형 외형
 
 
 #추후, 개발 예정
-- 현재, EfficientNet 모델만 crop-resize 과정이 적용되어  yolo모델에도 crop-resize 적용 예정 
-- 
+- 현재, EfficientNet 모델만 crop-resize 과정이 적용되어  yolo 모델에도 crop-resize 적용 예정 
