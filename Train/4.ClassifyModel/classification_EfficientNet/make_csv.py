@@ -1,3 +1,4 @@
+#save csv("train_covid_croped", "test_covid_croped")
 import os
 import pandas as pd
 import csv
